@@ -1,0 +1,58 @@
+package multidim;
+
+import java.util.Scanner;
+
+public class M12 {
+	
+	
+	public static void main(String[] args) {
+		
+		int[][] a=read();
+		print(a);
+		int[] rec=called(a);
+		for(int i=0;i<rec.length;i++)
+			System.out.println(rec[i]);
+	}
+
+	public static int[] called(int[][] a){
+		int[] rs=new int[a.length];
+		for(int i=0;i<a.length;i++) {
+			int rbig=0;
+			for(int j=0;j<a[0].length;j++) {
+				if(a[i][j]>rbig)
+					rbig=a[i][j];
+			}
+			rs[i]=rbig;
+		}
+		return rs;
+	}
+	
+	static int[][] read() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter row length");
+		int r=sc.nextInt();
+		System.out.println("Enter coloumn length");
+		int c=sc.nextInt();
+		int[][] a=new int[r][c]; 
+		System.out.println("Enter Array Elements");
+		for(int i=0;i<a.length;i++) {
+			for(int j=0;j<a[i].length;j++) {
+				a[i][j]=sc.nextInt();				
+			}
+		}
+		return a;
+	}
+	
+	static void print(int[][] a) {
+		for(int i=0;i<a.length;i++) {
+			for(int j=0;j<a[i].length;j++) {
+				System.out.print(a[i][j]+" ");
+			}
+			System.out.println();
+		}
+		System.out.println();
+	}
+}
+	
+	
+	
